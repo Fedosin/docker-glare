@@ -1,0 +1,19 @@
+version: '2'
+services:
+  mysql_db:
+    image: mysql:5.7
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: something_secret
+
+  glare:
+    depends_on:
+      - mysql_db
+    image: mfedosin/openstack-glare
+    links:
+      - mysql_db
+    ports:
+      - "9494:9494"
+    restart: always
