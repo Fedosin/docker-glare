@@ -1,6 +1,6 @@
 ## Short Description
 
-Glare is an OpenStack project that provides unified catalog of binary data along with its metadata, such strauctures are also called 'artifacts'. This project aim to deploy Glare service using Docker and can be upgraded easily.
+Glare is an OpenStack project that provides unified catalog of binary data along with its metadata, such structures are also called 'artifacts'. This project aim to deploy Glare service using Docker and can be upgraded easily.
 
 ## Quick Start
 
