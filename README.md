@@ -62,3 +62,11 @@ source openrc
 glare create image my_img
 glare list images
 ```
+
+## Attaching custom patches
+
+You can attach custom volume with glare code by executing
+
+```docker run -t -i -d --hostname controller -v /path/to/local/glare:/glare --name glare mfedosin/openstack-glare```
+
+In this case glare service will start from user's code without pulling patches from github repository.

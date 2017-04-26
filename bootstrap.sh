@@ -15,7 +15,11 @@ rm -f $SQL_SCRIPT
 
 # Install latest glare
 cd glare
-git pull
+if ! df | grep -q '/glare'
+then
+    # If external volume is mounted - skip the pulling
+    git pull
+fi
 pip install -e .
 
 # Populate the Artifact service database
