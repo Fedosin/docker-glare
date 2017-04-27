@@ -13,11 +13,14 @@ fi
 
 rm -f $SQL_SCRIPT
 
-# Install latest glare
 cd glare
-if ! df | grep -q '/glare'
+if [ -d  '/my_glare' ]
 then
-    # If external volume is mounted - skip the pulling
+    # If custom volume with glare code is mounted, then use it as-is
+    rm -rf /glare
+    cp -r /my_glare /glare
+else
+    # Pull latest changes
     git pull
 fi
 pip install -e .
