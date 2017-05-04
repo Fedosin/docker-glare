@@ -13,7 +13,6 @@ fi
 
 rm -f $SQL_SCRIPT
 
-cd glare
 if [ -d  '/my_glare' ]
 then
     # If custom volume with glare code is mounted, then use it as-is
@@ -23,6 +22,7 @@ else
     # Pull latest changes
     git pull
 fi
+cd glare
 pip install -e .
 
 # Populate the Artifact service database
