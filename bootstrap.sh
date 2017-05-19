@@ -18,18 +18,20 @@ then
     # If custom volume with glare code is mounted, then use it as-is
     rm -rf /glare
     cp -r /my_glare /glare
+    cd /glare
 else
     # Pull latest changes
+    cd /glare
     git pull
 fi
-cd glare
+
 pip install -e .
 
 # Populate the Artifact service database
 glare-db-manage --config-file /etc/glare/glare.conf upgrade
 
 # Write openrc to disk
-cat >~/openrc <<EOF
+cat >/root/openrc <<EOF
 export AUTH_TOKEN="admin:admin:admin"
 export OS_GLARE_URL="http://${HOSTNAME}:9494"
 EOF
